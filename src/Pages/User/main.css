@@ -1,0 +1,11 @@
+.borders{
+    border: 1;
+    border-style: solid;
+    border-color: teal;
+}
+.center{
+    text-align: center;
+}
+body{
+    font-family: boonhome !important;
+}
