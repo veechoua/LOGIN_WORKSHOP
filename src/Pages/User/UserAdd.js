@@ -3,12 +3,17 @@ import { Button, Form, Row, Col, Table } from 'react-bootstrap';
 import axios from 'axios'
 import Notiflix from 'notiflix-react'
 import "./main.css";
+import {USER_KEY} from '../../const';
+import {useHistory} from 'react-router-dom';
 export default function UserAdd() {
+    const history = useHistory();
     const [userName, setuserName] = useState();
     const [password, setPassword] = useState();
     const [status, setStatus] = useState(false);
     const [datas, setDatas] = useState([]);
     console.log("datas:", datas);
+    let vaaa = JSON.parse(localStorage.getItem('user'));
+    console.log('USER:', vaaa);
     const api = "http://localhost:5000/we-use-router";
     const messageSuccess = (e) => {
         setuserName('');
@@ -57,6 +62,10 @@ export default function UserAdd() {
             .catch(err => messageError('ລືບລົ້ມແຫຼວ'))
     }
 
+    const _logOut=()=>{
+        localStorage.removeItem('user');
+        history.push('/');
+    }
 
     return (
         <div>
@@ -95,6 +104,7 @@ export default function UserAdd() {
                     <Row>
                         <Col sm='6'></Col>
                         <Button className="btn btn-info" onClick={() =>  _adduser()}>ເພີ່ມບັນຊີຜູ້ໃຊ້</Button>
+                        <Button className="btn btn-danger" onClick={_logOut}>Log-out</Button>
                     </Row>
                 </Form><br />
                 <Table className="table table-hover">
