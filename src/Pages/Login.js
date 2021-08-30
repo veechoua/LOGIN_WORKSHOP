@@ -57,7 +57,7 @@ export default function Login() {
         if(result.status==='ok'){
           let data = result.data;
           localStorage.setItem(USER_KEY,JSON.stringify(data));
-          history.push("/manage-user");
+          history.push("/home");
         }else{
           setIsLogIn(false);
         }

@@ -3,12 +3,6 @@ import {Route, Redirect} from 'react-router-dom';
 import { USER_KEY } from '../const';
 import {isLogIn} from '../const/ConstHelp';
 export default function PrivateRoute({component:Component,headerTitle,...rest}) {
-    // const isUserData = JSON.parse(localStorage.getItem(USER_KEY));
-    // const isLogIn = !_.isEmpty(isUserData);
-    // const [isLogIn, setIsLogIn] = useState();
-    // if(isUserData!==''||isUserData==' '||isUserData==null){
-    //     setIsLogIn(isUserData);
-    // }
     const isLogInOn = isLogIn();
     return (
         <Route
