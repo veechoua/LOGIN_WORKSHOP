@@ -79,6 +79,14 @@ export default function UserAdd() {
       <div className="container">
         <br />
         <Form>
+        <Row>
+            <Col sm="3"></Col>
+            <Col sm="3">
+              <Form.Label>ຊື່ບັນຊີຜູ້ໃຊ້:</Form.Label>
+            </Col>
+            <Col sm="3"></Col>
+          </Row>
+          <br />
           <Row>
             <Col sm="3"></Col>
             <Col sm="2">

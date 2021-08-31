@@ -1,12 +1,24 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import { useHistory } from "react-router";
 import {Formik} from 'formik'
+import axios from "axios";
 export default function EditUser() {
   const history = useHistory();
+  let api = "http://localhost:5000/we-use-router";
   const data = history?.location?.state;
-
+  const [ddata, setDdata] = useState([])
+  const [username, setUserName] = useState();
+  const [password, setPassword] = useState();
   // query data for eidt
-
+  const _getUser=() =>{
+    axios.get(`${api}/getuser/${data}`)
+    .then(res=>{setDdata(res)})
+    .catch(err=> console.log(err))
+  }
+    useEffect(() => {
+       _getUser();
+       console.log("vee:",ddata);
+    }, [])
   return (
     <div>
       <div className="container">
@@ -45,19 +57,23 @@ export default function EditUser() {
               <input
                 type="email"
                 name="email"
+                className="form-control"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.email}
-              />
-              {errors.email && touched.email && errors.email}
+              /> 
+              {errors.email && touched.email && errors.email}<br />
               <input
                 type="password"
                 name="password"
+                className="form-control"
                 onChange={handleChange}
                 onBlur={handleBlur}
                 value={values.password}
+
               />
               {errors.password && touched.password && errors.password}
+              <br />
               <button type="submit" disabled={isSubmitting}>
                 Submit
               </button>

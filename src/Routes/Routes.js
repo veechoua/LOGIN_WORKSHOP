@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import UserAdd from "../Pages/User/UserAdd";
-import Test from "../Pages/User/Test";
 import Home from "../Pages/Home";
 import Login from "../Pages/Login";
 import PrivateRoute from "./PrivateRoute";
